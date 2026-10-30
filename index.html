@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AmericaLauncher — лаунчер игр для Windows. Скачать бесплатно</title>
+<meta name="description" content="AmericaLauncher — бесплатный лаунчер игр для Windows 10/11: библиотека с обложками и временем в игре, загрузки с докачкой, каталог Steam, Epic и открытых игр. Установка без прав администратора.">
+<meta name="keywords" content="AmericaLauncher, America Launcher, лаунчер игр, лаунчер для Windows, скачать лаунчер, библиотека игр">
+<link rel="canonical" href="https://glebhandoga-del.github.io/AmericaLauncher/">
+<link rel="icon" href="favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AmericaLauncher">
+<meta property="og:title" content="AmericaLauncher — лаунчер игр для Windows">
+<meta property="og:description" content="Библиотека игр с обложками, учёт времени, загрузки с докачкой, каталог Steam и Epic. Бесплатно, без прав администратора.">
+<meta property="og:url" content="https://glebhandoga-del.github.io/AmericaLauncher/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AmericaLauncher",
+  "alternateName": "America Launcher",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "softwareVersion": "1.6.0",
+  "downloadUrl": "https://github.com/glebhandoga-del/AmericaLauncher/releases/latest",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RUB"},
+  "description": "Лаунчер игр для Windows: библиотека с обложками, время в игре, загрузки с докачкой, каталог Steam, Epic и открытых игр."
+}
+</script>
+
+<style>
+  :root {
+    --bg: #0b0f16; --panel: #131a24; --panel-2: #182131; --line: #222c3a;
+    --text: #e6edf3; --muted: #8b98a8; --accent: #66c0f4; --green: #3fb950;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; color: var(--text);
+    font: 16px/1.6 "Segoe UI", Roboto, Arial, sans-serif;
+    background: radial-gradient(1200px 600px at 50% -200px, #16233a 0%, var(--bg) 60%);
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  header.top { position: sticky; top: 0; z-index: 10; background: rgba(11,15,22,.85);
+    border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px;
+    background: linear-gradient(160deg,#2a90d8,#66c0f4); color: #06121d; font-weight: 800; font-size: 20px; }
+  .brand strong { display: block; }
+  .brand small { color: var(--muted); font-size: 12px; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 22px; font-size: 14px; }
+  nav a:hover { color: var(--text); }
+
+  .hero { padding: 64px 24px 24px; text-align: center; }
+  h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.15; margin: 0 0 16px; letter-spacing: -.5px; }
+  .lead { color: var(--muted); max-width: 720px; margin: 0 auto 32px; font-size: 17px; }
+
+  .download-box { background: linear-gradient(180deg,var(--panel-2),var(--panel));
+    border: 1px solid var(--line); border-radius: 18px; padding: 28px; max-width: 680px;
+    margin: 0 auto; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+  .btn-primary { display: inline-block; text-decoration: none; color: #fff; font-weight: 700;
+    font-size: 18px; padding: 16px 40px; border-radius: 12px; border: 1px solid var(--green);
+    background: linear-gradient(160deg,#43a047,#2e7d32); transition: transform .12s, filter .12s; }
+  .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.08); }
+  .file-meta { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+    color: var(--muted); font-size: 13px; margin-top: 18px; }
+  .stats { display: flex; gap: 36px; justify-content: center; margin-top: 22px;
+    padding-top: 20px; border-top: 1px solid var(--line); }
+  .stats b { display: block; font-size: 26px; }
+  .stats span { color: var(--muted); font-size: 12px; }
+  .sha { margin: 16px 0 0; color: var(--muted); font-size: 11px; word-break: break-all; }
+  code { background: #0d141d; border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px;
+    font: 12px Consolas, monospace; }
+
+  section { padding: 56px 24px; }
+  section h2 { font-size: 28px; margin: 0 0 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 16px; }
+  .grid article { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .grid h3 { margin: 0 0 8px; font-size: 16px; }
+  .grid p { margin: 0; color: var(--muted); font-size: 14px; }
+  .steps { margin: 0 0 20px; padding-left: 22px; color: var(--muted); }
+  .steps li { margin-bottom: 10px; }
+  .muted { color: var(--muted); }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--muted); margin: 10px 0 0; font-size: 14px; }
+  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px;
+    padding: 26px 24px 40px; text-align: center; }
+  @media (max-width: 640px) { nav { display: none; } .stats { gap: 22px; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo">A</span>
+      <div><strong>AmericaLauncher</strong><small>версия 1.6.0</small></div>
+    </div>
+    <nav>
+      <a href="#features">Возможности</a>
+      <a href="#install">Установка</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1>AmericaLauncher — лаунчер, который не мешает играть</h1>
+    <p class="lead">
+      Библиотека игр с обложками и учётом времени, загрузки с докачкой и продолжением,
+      каталог Steam, Epic и открытых игр. Ставится без прав администратора, Python не нужен.
+    </p>
+
+    <div class="download-box">
+      <a class="btn-primary" id="download-btn" href="https://github.com/glebhandoga-del/AmericaLauncher/releases/download/v1.6.0/AmericaLauncher_Setup_1.6.0.exe" download>
+        Скачать для Windows
+      </a>
+      <div class="file-meta">
+        <span>AmericaLauncher_Setup_1.6.0.exe</span>
+        <span>31,9 МБ</span>
+        <span>Windows 10 / 11, 64-бит</span>
+      </div>
+      <div class="stats">
+        <div><b id="downloads">—</b><span>скачиваний</span></div>
+        <div><b id="visits">—</b><span>посещений</span></div>
+        <div><b>бесплатно</b><span>цена</span></div>
+      </div>
+      <p class="sha">Файл лежит в GitHub Releases — там же видно точное число скачиваний.</p>
+    </div>
+  </section>
+
+  <section id="features" class="wrap">
+    <h2>Что внутри</h2>
+    <div class="grid">
+      <article><h3>Библиотека с обложками</h3><p>Добавление .exe перетаскиванием, поиск, избранное, время в игре, сортировки.</p></article>
+      <article><h3>Загрузки с докачкой</h3><p>Ссылки, magnet и .torrent. Пауза, очередь, продолжение после перезапуска.</p></article>
+      <article><h3>Каталог</h3><p>Steam и Epic с ценами и скидками, открытые игры, ретро-игры archive.org.</p></article>
+      <article><h3>Трей и автозапуск</h3><p>Сворачивается в трей, загрузки продолжают идти. Автозапуск с Windows.</p></article>
+    </div>
+  </section>
+
+  <section id="install" class="wrap">
+    <h2>Установка</h2>
+    <ol class="steps">
+      <li>Скачай установщик кнопкой выше.</li>
+      <li>Запусти файл. Если Windows покажет «Windows защитила ваш компьютер» — «Подробнее» → «Выполнить всё равно»: файл не подписан сертификатом.</li>
+      <li>Выбери «Только для меня» — права администратора не нужны.</li>
+      <li>Готово: ярлык появится в меню Пуск.</li>
+    </ol>
+    <p class="muted">
+      Данные хранятся в <code>%APPDATA%\AmericaLauncher</code>, загрузки — рядом с программой
+      в папке <code>downloads</code>.
+    </p>
+  </section>
+
+  <section id="faq" class="wrap">
+    <h2>Частые вопросы</h2>
+    <details><summary>Нужен ли Python?</summary><p>Нет. Python, Qt и libtorrent уже внутри установщика.</p></details>
+    <details><summary>Почему антивирус ругается?</summary><p>Сборки на PyInstaller иногда попадают под эвристику, а файл не подписан цифровым сертификатом. Можно добавить папку в исключения.</p></details>
+    <details><summary>Есть ли игры внутри?</summary><p>Нет. Лаунчер — библиотека и загрузчик. Каталог ведёт только на официальные источники: Steam, Epic, сайты разработчиков, Internet Archive.</p></details>
+    <details><summary>Где посмотреть статистику?</summary><p>Посещения считает Яндекс.Метрика, скачивания — GitHub Releases (счётчик подтягивается на эту страницу автоматически).</p></details>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>AmericaLauncher 1.6.0 · Windows 10/11 x64 · <span id="year">2026</span></p>
+</footer>
+
+<script>
+  // ==== настройки ====
+  var GITHUB_REPO = "glebhandoga-del/AmericaLauncher";   // например "ivan/AmericaLauncher"
+  var ASSET_HINT = "Setup";            // часть имени файла релиза
+  var YM_COUNTER_ID = 0;               // номер счётчика Яндекс.Метрики
+
+  // счётчик скачиваний из GitHub Releases
+  (function () {
+    if (!GITHUB_REPO || GITHUB_REPO.indexOf("USERNAME") === 0) return;
+    fetch("https://api.github.com/repos/" + GITHUB_REPO + "/releases")
+      .then(function (r) { return r.json(); })
+      .then(function (releases) {
+        var total = 0;
+        (releases || []).forEach(function (rel) {
+          (rel.assets || []).forEach(function (asset) {
+            if (asset.name && asset.name.indexOf(ASSET_HINT) !== -1) {
+              total += asset.download_count || 0;
+            }
+          });
+        });
+        var el = document.getElementById("downloads");
+        if (el) el.textContent = total.toLocaleString("ru-RU");
+      })
+      .catch(function () {});
+  })();
+
+  // цель Метрики на клик по кнопке скачивания
+  var btn = document.getElementById("download-btn");
+  if (btn) {
+    btn.addEventListener("click", function () {
+      if (YM_COUNTER_ID && typeof ym === "function") {
+        ym(YM_COUNTER_ID, "reachGoal", "download");
+      }
+    });
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<!-- Яндекс.Метрика: вставь свой код счётчика ниже, он начнёт считать посещения -->
+<!--
+<script>
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  ym(00000000, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true});
+</script>
+-->
+</body>
+</html>
