@@ -1,4 +1,4 @@
-а<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -8,14 +8,20 @@
 <meta name="keywords" content="AmericaLauncher, America Launcher, лаунчер игр, лаунчер для Windows, скачать лаунчер, библиотека игр">
 <link rel="canonical" href="https://glebhandoga-del.github.io/AmericaLauncher/">
 <link rel="icon" href="favicon.ico">
-  <meta name="yandex-verification" content="5cdc4eab1d62a2d1" />
+<meta name="yandex-verification" content="5cdc4eab1d62a2d1" />
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AmericaLauncher">
 <meta property="og:title" content="AmericaLauncher — лаунчер игр для Windows">
-<meta property="og:description" content="Библиотека игр с обложками, учёт времени, загрузки с докачкой, каталог Steam и Epic. Бесплатно, без прав администратора.">
+<meta property="og:description" content="Библиотека игр с обложками и временем в игре, загрузки с докачкой, каталог Steam и Epic. Бесплатно, без прав администратора.">
 <meta property="og:url" content="https://glebhandoga-del.github.io/AmericaLauncher/">
+<meta property="og:image" content="https://glebhandoga-del.github.io/AmericaLauncher/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AmericaLauncher — лаунчер игр для Windows">
+<meta name="twitter:description" content="Скачать бесплатный лаунчер для Windows: библиотека, загрузки, каталог.">
+<meta name="twitter:image" content="https://glebhandoga-del.github.io/AmericaLauncher/og-image.png">
 
 <script type="application/ld+json">
 {
@@ -26,85 +32,206 @@
   "applicationCategory": "GameApplication",
   "operatingSystem": "Windows 10, Windows 11",
   "softwareVersion": "1.6.0",
-  "downloadUrl": "https://github.com/glebhandoga-del/AmericaLauncher/releases/latest",
+  "fileSize": "31.9MB",
+  "downloadUrl": "https://glebhandoga-del.github.io/AmericaLauncher/",
+  "image": "https://glebhandoga-del.github.io/AmericaLauncher/og-image.png",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RUB"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5", "ratingCount": "1"},
   "description": "Лаунчер игр для Windows: библиотека с обложками, время в игре, загрузки с докачкой, каталог Steam, Epic и открытых игр."
 }
 </script>
 
 <style>
   :root {
-    --bg: #0b0f16; --panel: #131a24; --panel-2: #182131; --line: #222c3a;
-    --text: #e6edf3; --muted: #8b98a8; --accent: #66c0f4; --green: #3fb950;
+    --bg: #080b11; --bg-2: #0b1017; --panel: #121a24; --panel-2: #18222f;
+    --line: #202b39; --text: #e8eef5; --muted: #8a97a8;
+    --accent: #66c0f4; --accent-2: #2a90d8; --green: #3fb950; --gold: #f0c040;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    margin: 0; color: var(--text);
-    font: 16px/1.6 "Segoe UI", Roboto, Arial, sans-serif;
-    background: radial-gradient(1200px 600px at 50% -200px, #16233a 0%, var(--bg) 60%);
+    margin: 0; color: var(--text); background: var(--bg);
+    font: 16px/1.65 "Segoe UI", Roboto, -apple-system, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--accent); }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
 
-  header.top { position: sticky; top: 0; z-index: 10; background: rgba(11,15,22,.85);
-    border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
-  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  /* ---------- шапка ---------- */
+  header {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(8, 11, 17, .82); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .top { display: flex; align-items: center; justify-content: space-between; height: 66px; }
   .brand { display: flex; align-items: center; gap: 12px; }
-  .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px;
-    background: linear-gradient(160deg,#2a90d8,#66c0f4); color: #06121d; font-weight: 800; font-size: 20px; }
-  .brand strong { display: block; }
-  .brand small { color: var(--muted); font-size: 12px; }
-  nav a { color: var(--muted); text-decoration: none; margin-left: 22px; font-size: 14px; }
+  .logo {
+    width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;
+    background: linear-gradient(155deg, var(--accent-2), var(--accent));
+    color: #06121d; font-weight: 800; font-size: 19px;
+    box-shadow: 0 6px 18px rgba(42, 144, 216, .35);
+  }
+  .brand strong { display: block; font-size: 15px; letter-spacing: .2px; }
+  .brand small { color: var(--muted); font-size: 11px; }
+  nav { display: flex; gap: 26px; }
+  nav a { color: var(--muted); font-size: 14px; transition: color .15s; }
   nav a:hover { color: var(--text); }
 
-  .hero { padding: 64px 24px 24px; text-align: center; }
-  h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.15; margin: 0 0 16px; letter-spacing: -.5px; }
-  .lead { color: var(--muted); max-width: 720px; margin: 0 auto 32px; font-size: 17px; }
+  /* ---------- герой ---------- */
+  .hero { position: relative; padding: 74px 0 40px; text-align: center; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -240px 0 auto; height: 560px; z-index: -1;
+    background: radial-gradient(620px 300px at 50% 60%, rgba(42,144,216,.30), transparent 70%);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px;
+    padding: 6px 15px; border-radius: 999px; font-size: 13px;
+    color: var(--accent); background: rgba(102,192,244,.09);
+    border: 1px solid rgba(102,192,244,.28);
+  }
+  h1 {
+    font-size: clamp(32px, 5.2vw, 56px); line-height: 1.1; margin: 0 0 18px;
+    letter-spacing: -1px; font-weight: 800;
+  }
+  h1 span {
+    background: linear-gradient(100deg, var(--accent), #8bd6ff);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lead { color: var(--muted); font-size: 17px; max-width: 660px; margin: 0 auto 34px; }
 
-  .download-box { background: linear-gradient(180deg,var(--panel-2),var(--panel));
-    border: 1px solid var(--line); border-radius: 18px; padding: 28px; max-width: 680px;
-    margin: 0 auto; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
-  .btn-primary { display: inline-block; text-decoration: none; color: #fff; font-weight: 700;
-    font-size: 18px; padding: 16px 40px; border-radius: 12px; border: 1px solid var(--green);
-    background: linear-gradient(160deg,#43a047,#2e7d32); transition: transform .12s, filter .12s; }
-  .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.08); }
-  .file-meta { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
-    color: var(--muted); font-size: 13px; margin-top: 18px; }
-  .stats { display: flex; gap: 36px; justify-content: center; margin-top: 22px;
-    padding-top: 20px; border-top: 1px solid var(--line); }
-  .stats b { display: block; font-size: 26px; }
-  .stats span { color: var(--muted); font-size: 12px; }
-  .sha { margin: 16px 0 0; color: var(--muted); font-size: 11px; word-break: break-all; }
-  code { background: #0d141d; border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px;
-    font: 12px Consolas, monospace; }
+  .dl {
+    max-width: 640px; margin: 0 auto; padding: 26px;
+    border-radius: 20px; border: 1px solid var(--line);
+    background: linear-gradient(180deg, var(--panel-2), var(--panel));
+    box-shadow: 0 30px 70px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.03);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 40px; border-radius: 13px; font-size: 18px; font-weight: 700;
+    color: #fff; background: linear-gradient(160deg, #46ab4b, #2b7a30);
+    border: 1px solid var(--green); cursor: pointer;
+    box-shadow: 0 10px 26px rgba(63,185,80,.28);
+    transition: transform .12s, box-shadow .12s, filter .12s;
+  }
+  .btn:hover { transform: translateY(-2px); filter: brightness(1.07);
+    box-shadow: 0 16px 34px rgba(63,185,80,.36); }
+  .btn:active { transform: translateY(0); }
+  .meta {
+    display: flex; gap: 10px 18px; justify-content: center; flex-wrap: wrap;
+    margin-top: 16px; color: var(--muted); font-size: 13px;
+  }
+  .meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .stats {
+    display: flex; justify-content: center; gap: 34px;
+    margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line);
+  }
+  .stats b { display: block; font-size: 25px; font-weight: 700; }
+  .stats span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
+  .warn { color: var(--muted); font-size: 12px; margin: 16px 0 0; }
+  .warn code { color: #c9d6e4; }
 
-  section { padding: 56px 24px; }
-  section h2 { font-size: 28px; margin: 0 0 24px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 16px; }
-  .grid article { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
-  .grid h3 { margin: 0 0 8px; font-size: 16px; }
-  .grid p { margin: 0; color: var(--muted); font-size: 14px; }
-  .steps { margin: 0 0 20px; padding-left: 22px; color: var(--muted); }
-  .steps li { margin-bottom: 10px; }
-  .muted { color: var(--muted); }
-  details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
-    padding: 14px 18px; margin-bottom: 10px; }
-  summary { cursor: pointer; font-weight: 600; }
+  /* ---------- скриншоты ---------- */
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
+  .shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--line);
+    background: #0d131b; box-shadow: 0 22px 50px rgba(0,0,0,.45); }
+  .shot-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px;
+    background: #121a24; border-bottom: 1px solid var(--line); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.r { background: #ff5f56; } .dot.y { background: #ffbd2e; } .dot.g { background: #27c93f; }
+  .shot-title { margin-left: 8px; color: var(--muted); font-size: 11px; }
+  .shot-body { padding: 14px; min-height: 232px; }
+
+  .ui-lib { display: grid; grid-template-columns: 74px 1fr; gap: 12px; }
+  .ui-side { display: flex; flex-direction: column; gap: 6px; }
+  .ui-nav { height: 24px; border-radius: 6px; background: #161f2b; }
+  .ui-nav.on { background: #1e2c3d; border: 1px solid #2a475e; }
+  .ui-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .ui-tile { background: #141d28; border: 1px solid var(--line); border-radius: 9px; padding: 6px; }
+  .ui-cover { height: 52px; border-radius: 6px; margin-bottom: 5px; }
+  .ui-name { font-size: 9px; font-weight: 700; }
+  .ui-hours { font-size: 8px; color: var(--muted); }
+  .c1 { background: linear-gradient(150deg,#2b3f5c,#7a9dc4); }
+  .c2 { background: linear-gradient(150deg,#6b4f2a,#c99a4e); }
+  .c3 { background: linear-gradient(150deg,#16404d,#2aa7b8); }
+  .c4 { background: linear-gradient(150deg,#3b2a52,#8a6bb5); }
+
+  .ui-cat { display: flex; flex-direction: column; gap: 7px; }
+  .ui-row { display: flex; align-items: center; gap: 9px; background: #141d28;
+    border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; }
+  .ui-thumb { width: 42px; height: 26px; border-radius: 4px; flex: none; }
+  .ui-txt { flex: 1; }
+  .ui-t { font-size: 9px; font-weight: 700; }
+  .ui-s { font-size: 8px; color: var(--muted); }
+  .ui-btn { font-size: 8px; font-weight: 700; color: #06121d; background: var(--accent);
+    border-radius: 5px; padding: 3px 7px; }
+
+  /* ---------- секции ---------- */
+  section { padding: 64px 0; }
+  .section-head { text-align: center; margin-bottom: 34px; }
+  .section-head h2 { font-size: clamp(24px, 3.4vw, 34px); margin: 0 0 10px; letter-spacing: -.5px; }
+  .section-head p { color: var(--muted); margin: 0; font-size: 15px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 16px; }
+  .card {
+    background: linear-gradient(180deg, #131c27, #101821);
+    border: 1px solid var(--line); border-radius: 16px; padding: 22px;
+    transition: border-color .15s, transform .15s;
+  }
+  .card:hover { border-color: #2a475e; transform: translateY(-2px); }
+  .ico {
+    width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center;
+    font-size: 19px; margin-bottom: 12px; background: rgba(102,192,244,.1);
+    border: 1px solid rgba(102,192,244,.22);
+  }
+  .card h3 { margin: 0 0 6px; font-size: 16px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; counter-reset: s; }
+  .step { position: relative; padding: 22px 22px 22px 64px; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 16px; }
+  .step::before {
+    counter-increment: s; content: counter(s);
+    position: absolute; left: 20px; top: 20px; width: 30px; height: 30px;
+    border-radius: 9px; display: grid; place-items: center; font-weight: 800;
+    background: rgba(102,192,244,.12); color: var(--accent); border: 1px solid rgba(102,192,244,.25);
+  }
+  .step h3 { margin: 0 0 6px; font-size: 15px; }
+  .step p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  details {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 13px; padding: 15px 18px; margin-bottom: 10px;
+  }
+  summary { cursor: pointer; font-weight: 600; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "›"; color: var(--accent); margin-right: 10px;
+    display: inline-block; transition: transform .15s; }
+  details[open] summary::before { transform: rotate(90deg); }
   details p { color: var(--muted); margin: 10px 0 0; font-size: 14px; }
-  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px;
-    padding: 26px 24px 40px; text-align: center; }
-  @media (max-width: 640px) { nav { display: none; } .stats { gap: 22px; } }
+
+  footer {
+    border-top: 1px solid var(--line); color: var(--muted);
+    font-size: 13px; padding: 28px 0 44px; text-align: center;
+  }
+  footer a { color: var(--muted); text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .shots { grid-template-columns: 1fr; }
+    nav { display: none; }
+    .stats { gap: 22px; }
+  }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
+<header>
+  <div class="wrap top">
     <div class="brand">
       <span class="logo">A</span>
       <div><strong>AmericaLauncher</strong><small>версия 1.6.0</small></div>
     </div>
     <nav>
+      <a href="#shots">Скриншоты</a>
       <a href="#features">Возможности</a>
       <a href="#install">Установка</a>
       <a href="#faq">Вопросы</a>
@@ -114,74 +241,134 @@
 
 <main>
   <section class="hero wrap">
-    <h1>AmericaLauncher — лаунчер, который не мешает играть</h1>
+    <div class="badge">● Бесплатно · Windows 10 / 11 · без Python</div>
+    <h1>Твой лаунчер.<br><span>Все игры в одном месте</span></h1>
     <p class="lead">
-      Библиотека игр с обложками и учётом времени, загрузки с докачкой и продолжением,
-      каталог Steam, Epic и открытых игр. Ставится без прав администратора, Python не нужен.
+      Библиотека с обложками и временем в игре, загрузки с докачкой,
+      каталог Steam, Epic и открытых игр. Ставится за минуту, права администратора не нужны.
     </p>
 
-    <div class="download-box">
-      <a class="btn-primary" id="download-btn" href="https://github.com/glebhandoga-del/AmericaLauncher/releases/download/v1.6.0/AmericaLauncher_Setup_1.6.0.exe" download>
-        Скачать для Windows
+    <div class="dl">
+      <a class="btn" id="download-btn" href="https://github.com/glebhandoga-del/AmericaLauncher/releases/download/v1.6.0/AmericaLauncher_Setup_1.6.0.exe" download>
+        ⬇ Скачать для Windows
       </a>
-      <div class="file-meta">
+      <div class="meta">
         <span>AmericaLauncher_Setup_1.6.0.exe</span>
         <span>31,9 МБ</span>
-        <span>Windows 10 / 11, 64-бит</span>
+        <span>Windows 10 / 11, x64</span>
       </div>
       <div class="stats">
         <div><b id="downloads">—</b><span>скачиваний</span></div>
-        <div><b id="visits">—</b><span>посещений</span></div>
-        <div><b>бесплатно</b><span>цена</span></div>
+        <div><b>1.6.0</b><span>версия</span></div>
+        <div><b>0 ₽</b><span>цена</span></div>
       </div>
-      <p class="sha">Файл лежит в GitHub Releases — там же видно точное число скачиваний.</p>
+      <p class="warn">
+        Файл не подписан сертификатом — при запуске Windows может показать
+        «Подробнее» → «Выполнить всё равно». Это нормально.
+      </p>
     </div>
   </section>
 
-  <section id="features" class="wrap">
-    <h2>Что внутри</h2>
-    <div class="grid">
-      <article><h3>Библиотека с обложками</h3><p>Добавление .exe перетаскиванием, поиск, избранное, время в игре, сортировки.</p></article>
-      <article><h3>Загрузки с докачкой</h3><p>Ссылки, magnet и .torrent. Пауза, очередь, продолжение после перезапуска.</p></article>
-      <article><h3>Каталог</h3><p>Steam и Epic с ценами и скидками, открытые игры, ретро-игры archive.org.</p></article>
-      <article><h3>Трей и автозапуск</h3><p>Сворачивается в трей, загрузки продолжают идти. Автозапуск с Windows.</p></article>
+  <section id="shots" class="wrap">
+    <div class="section-head">
+      <h2>Как это выглядит</h2>
+      <p>Тёмная тема, крупные обложки, ничего лишнего</p>
+    </div>
+    <div class="shots">
+      <div class="shot">
+        <div class="shot-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="shot-title">Библиотека</span>
+        </div>
+        <div class="shot-body">
+          <div class="ui-lib">
+            <div class="ui-side">
+              <div class="ui-nav on"></div><div class="ui-nav"></div>
+              <div class="ui-nav"></div><div class="ui-nav"></div>
+            </div>
+            <div class="ui-grid">
+              <div class="ui-tile"><div class="ui-cover c1"></div><div class="ui-name">Skyrim</div><div class="ui-hours">128 ч 40 мин</div></div>
+              <div class="ui-tile"><div class="ui-cover c2"></div><div class="ui-name">0 A.D.</div><div class="ui-hours">12 ч 05 мин</div></div>
+              <div class="ui-tile"><div class="ui-cover c3"></div><div class="ui-name">Xonotic</div><div class="ui-hours">3 ч 12 мин</div></div>
+              <div class="ui-tile"><div class="ui-cover c4"></div><div class="ui-name">SuperTuxKart</div><div class="ui-hours">не запускалась</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shot">
+        <div class="shot-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="shot-title">Каталог</span>
+        </div>
+        <div class="shot-body">
+          <div class="ui-cat">
+            <div class="ui-row"><div class="ui-thumb c1"></div><div class="ui-txt"><div class="ui-t">Portal 2</div><div class="ui-s">445 ₽ · Steam</div></div><div class="ui-btn">Установить</div></div>
+            <div class="ui-row"><div class="ui-thumb c2"></div><div class="ui-txt"><div class="ui-t">0 A.D. 0.28.0</div><div class="ui-s">торрент · 1,2 ГБ</div></div><div class="ui-btn">Скачать</div></div>
+            <div class="ui-row"><div class="ui-thumb c3"></div><div class="ui-txt"><div class="ui-t">Xonotic 0.8.6</div><div class="ui-s">торрент · 940 МБ</div></div><div class="ui-btn">Скачать</div></div>
+            <div class="ui-row"><div class="ui-thumb c4"></div><div class="ui-txt"><div class="ui-t">SuperTuxKart 1.5</div><div class="ui-s">прямая загрузка · 690 МБ</div></div><div class="ui-btn">Скачать</div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="install" class="wrap">
-    <h2>Установка</h2>
-    <ol class="steps">
-      <li>Скачай установщик кнопкой выше.</li>
-      <li>Запусти файл. Если Windows покажет «Windows защитила ваш компьютер» — «Подробнее» → «Выполнить всё равно»: файл не подписан сертификатом.</li>
-      <li>Выбери «Только для меня» — права администратора не нужны.</li>
-      <li>Готово: ярлык появится в меню Пуск.</li>
-    </ol>
-    <p class="muted">
-      Данные хранятся в <code>%APPDATA%\AmericaLauncher</code>, загрузки — рядом с программой
-      в папке <code>downloads</code>.
-    </p>
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Что внутри</h2>
+        <p>Без рекламы, без подписок, без телеметрии</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="ico">🎮</div><h3>Библиотека с обложками</h3><p>Перетащи .exe в окно — игра добавится. Обложку можно сменить, название — переименовать.</p></div>
+        <div class="card"><div class="ico">⏱</div><h3>Время в игре</h3><p>Лаунчер ждёт выхода из игры и записывает сессию. Видно на плитке и в общей статистике.</p></div>
+        <div class="card"><div class="ico">⭐</div><h3>Избранное и поиск</h3><p>Ctrl+F — поиск, Enter — запуск первой найденной. Фильтр по избранному, сортировка по времени.</p></div>
+        <div class="card"><div class="ico">⬇</div><h3>Загрузки с докачкой</h3><p>Ссылки, magnet и .torrent. Пауза, очередь до 8 задач, продолжение после перезапуска.</p></div>
+        <div class="card"><div class="ico">🛒</div><h3>Каталог</h3><p>Steam и Epic с ценами, открытые игры с GitHub, ретро-игры archive.org — всё с постерами.</p></div>
+        <div class="card"><div class="ico">🖥</div><h3>Трей и автозапуск</h3><p>Сворачивается в трей, загрузки идут дальше. Автозапуск с Windows — одной галочкой.</p></div>
+      </div>
+    </div>
   </section>
 
-  <section id="faq" class="wrap">
-    <h2>Частые вопросы</h2>
-    <details><summary>Нужен ли Python?</summary><p>Нет. Python, Qt и libtorrent уже внутри установщика.</p></details>
-    <details><summary>Почему антивирус ругается?</summary><p>Сборки на PyInstaller иногда попадают под эвристику, а файл не подписан цифровым сертификатом. Можно добавить папку в исключения.</p></details>
-    <details><summary>Есть ли игры внутри?</summary><p>Нет. Лаунчер — библиотека и загрузчик. Каталог ведёт только на официальные источники: Steam, Epic, сайты разработчиков, Internet Archive.</p></details>
-    <details><summary>Где посмотреть статистику?</summary><p>Посещения считает Яндекс.Метрика, скачивания — GitHub Releases (счётчик подтягивается на эту страницу автоматически).</p></details>
+  <section id="install">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Установка за минуту</h2>
+        <p>Ни Python, ни Visual C++, ни прав администратора</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Скачай установщик</h3><p>31,9 МБ, кнопка выше. Файл лежит в GitHub Releases.</p></div>
+        <div class="step"><h3>Запусти</h3><p>При предупреждении SmartScreen — «Подробнее» → «Выполнить всё равно».</p></div>
+        <div class="step"><h3>Играй</h3><p>Ярлык появится в меню Пуск. Данные — в %APPDATA%\AmericaLauncher.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head"><h2>Частые вопросы</h2></div>
+      <details><summary>Нужен ли Python или другие программы?</summary><p>Нет. Python, Qt и libtorrent уже внутри установщика — он весит 31,9 МБ именно поэтому.</p></details>
+      <details><summary>Почему Windows предупреждает о файле?</summary><p>Установщик не подписан цифровым сертификатом (это платная процедура). Нажми «Подробнее» → «Выполнить всё равно». Антивирус может ругаться на упаковщик PyInstaller — это ложное срабатывание.</p></details>
+      <details><summary>Есть ли в лаунчере игры?</summary><p>Нет. Это библиотека и загрузчик. Каталог ведёт только на официальные источники: Steam, Epic, сайты разработчиков открытых игр и Internet Archive.</p></details>
+      <details><summary>Куда сохраняются игры и настройки?</summary><p>Настройки и библиотека — в <code>%APPDATA%\AmericaLauncher</code>, загрузки — в папке <code>downloads</code> рядом с программой.</p></details>
+      <details><summary>Как удалить?</summary><p>«Параметры → Приложения → AmericaLauncher → Удалить». Данные в %APPDATA% остаются, их можно удалить вручную.</p></details>
+    </div>
   </section>
 </main>
 
-<footer class="wrap">
-  <p>AmericaLauncher 1.6.0 · Windows 10/11 x64 · <span id="year">2026</span></p>
+<footer>
+  <div class="wrap">
+    AmericaLauncher 1.6.0 · Windows 10/11 x64 ·
+    <a href="https://github.com/glebhandoga-del/AmericaLauncher/releases">все версии</a> ·
+    <span id="year">2026</span>
+  </div>
 </footer>
 
 <script>
-  // ==== настройки ====
-  var GITHUB_REPO = "glebhandoga-del/AmericaLauncher";   // например "ivan/AmericaLauncher"
-  var ASSET_HINT = "Setup";            // часть имени файла релиза
-  var YM_COUNTER_ID = 0;               // номер счётчика Яндекс.Метрики
+  var GITHUB_REPO = "glebhandoga-del/AmericaLauncher";
+  var ASSET_HINT = "Setup";
+  var YM_COUNTER_ID = 0;
 
-  // счётчик скачиваний из GitHub Releases
   (function () {
     if (!GITHUB_REPO || GITHUB_REPO.indexOf("USERNAME") === 0) return;
     fetch("https://api.github.com/repos/" + GITHUB_REPO + "/releases")
@@ -201,7 +388,6 @@
       .catch(function () {});
   })();
 
-  // цель Метрики на клик по кнопке скачивания
   var btn = document.getElementById("download-btn");
   if (btn) {
     btn.addEventListener("click", function () {
@@ -214,7 +400,7 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-<!-- Яндекс.Метрика: вставь свой код счётчика ниже, он начнёт считать посещения -->
+<!-- Яндекс.Метрика: раскомментируй и вставь номер счётчика вместо 00000000 -->
 <!--
 <script>
   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
